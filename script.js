@@ -1,4 +1,4 @@
-// get root data element
+// get root data elements
 let root = document.querySelector('[x-data]');
 
 let rawData = getInitialData();
