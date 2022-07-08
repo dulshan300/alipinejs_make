@@ -11,7 +11,19 @@
 <body>
 
 
-    <div x-data="{count:0}">
+    <div x-data="{count:0,text:'hello'}">
+        <button @click="count++">+</button>
+        <button @click="count--">-</button>
+
+        <span x-text="count"></span>
+
+        <div x-if="count>=10" class="">
+            <span>This is an inner element</span>
+        </div>       
+
+    </div>
+
+    <div x-data="{count:5}">
         <button @click="count++">+</button>
         <button @click="count--">-</button>
 
@@ -24,7 +36,7 @@
     </div>
 
 
-    <script src="script.js"></script>
+    <script src="script_v2.js"></script>
 
 </body>
 
