@@ -5,17 +5,29 @@ let rawData = getInitialData();
 
 let data = observe(rawData);
 
+registerListners();
 
 refreshDome()
 
+
+
+// register listners 
+function registerListners() {
+    domeWalk(root, el => {
+        if (el.hasAttribute('@click')) {
+            const exp = el.getAttribute('@click')
+            el.addEventListener('click', () => {
+                eval(`with (data){ (${exp}) }`)
+            })
+        }
+    })
+}
 
 // observe data
 function observe(data) {
     return new Proxy(data, {
         set(target, key, value) {
-            
             target[key] = value;
-
             refreshDome();
         }
     })
